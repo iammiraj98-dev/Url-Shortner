@@ -2,21 +2,36 @@
 import './urlShortner.css';
 import Image from 'next/image';
 import LinkIcon from '../assest/images/link-icon.png';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import urlShortnerSubmit from '../actions/urlShortnerSubmit';
 export const UrlShortnerPageComp = () =>{
   const urlInputref = useRef<HTMLInputElement>(null); 
+  const [isCopy,setCopy] = useState(false); 
+  const [copyUrl,setCopyUrl] = useState(""); 
   const submitUrlForm = async () =>{
-    // const urlRegex = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/;
     const url = urlInputref.current?.value || "";
-    // if(!urlRegex.test(url)){
-    //   alert('Please Enter Valid URL!');
-    //   return;
-    // }
+    if(!url){
+      alert("Please enter valid url!");
+      return;
+    }
     const res = await urlShortnerSubmit(url);
     if(res?.status){
-      alert(res.msg);
+      setCopy(true);
+      setCopyUrl(res.msg || "");
+
+      // console.log(res);
     }
+  }
+
+  const renderCopyShortUrl = () =>{
+    return(
+      <>
+      <div className='text-green-400 text-start mt-2'>
+        {copyUrl}
+      </div>
+      
+      </>
+    )
   }
   return(
     <>
@@ -34,7 +49,10 @@ export const UrlShortnerPageComp = () =>{
               className="input-field" 
               placeholder='Enter your URL here...'
             />
-            <div className='text-end'>
+            <div className='flex justify-between items-center'>
+              <div>
+                {isCopy && renderCopyShortUrl()}
+              </div>
               <button 
                 className='btn'
                 onClick={submitUrlForm}
@@ -45,7 +63,5 @@ export const UrlShortnerPageComp = () =>{
         </div>
       </div>
     </>
-  )
-
+  ) 
 }
-

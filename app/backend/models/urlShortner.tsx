@@ -12,7 +12,7 @@ const urlShortnerSchema = new mongoose.Schema(
       required: true,
     },
     status: {
-      type: Boolean,
+      type: Number,
       default: true,
     },
     expiresAt: {
@@ -24,4 +24,4 @@ const urlShortnerSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-export default mongoose.model('url_shortner',urlShortnerSchema);
+export default mongoose.models.url_shortner || mongoose.model('url_shortner',urlShortnerSchema);

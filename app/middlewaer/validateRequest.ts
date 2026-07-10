@@ -3,7 +3,7 @@ const validateRequest = (url:string) =>{
   if(!urlRegex.test(url)){
     return {status:0,msg:'Invalid Url'};
   }
-  return {status:1,msg:'sucess'}
+  return {status:1,msg:'sucess'};
 };
 
 export default validateRequest;

@@ -6,7 +6,6 @@ const commonHelper = {
     } catch (error) {
       console.error('something went wrong',error);
     }
-  }
+  },
 }
-
 export default commonHelper;

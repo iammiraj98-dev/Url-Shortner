@@ -1,27 +1,16 @@
 'use server';
-import connectMongoDB from "../connection/mongodb";
 import validateRequest from "../middlewaer/validateRequest";
-import commonHelper from "../backend/helper/commonhelper";
-import urlShortnerModel from "../backend/models/urlShortner";
+import controller from "../backend/controller/urlShortner";
+
 export default async function urlShortnerSubmit(url:string){
-  console.log(url);
-  if(url){
+  try {
     const res = validateRequest(url);
-    if(!res?.status)return res;
-    connectMongoDB();
-    const key = await commonHelper.genCryptoKey(url);
-    if(key){
-      const url_shortner = await urlShortnerModel.insertOne({
-        
-
-      });
-      url_shortner.save();
-
-    }
-    // console.log(key,'Key gEN');
-
-    return {status:1,msg:'URL Shortner Start!'};
-  }else{
+    if(!res?.status) return res;
+    const _res = await controller.createShorturl(url)
+    if(_res?.status) return _res;
     return {status:0,msg:'Something went wrong!'};
+
+  } catch (error) {
+    return {status:0,msg:'Something went wrong!',error};
   }
 }

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 export default async function connectMongoDB(){
   try {
     const DATABASE_URL:string = process.env.DATABASE_URL ?? "";
