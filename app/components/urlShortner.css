@@ -1,41 +1,49 @@
+.main-section{
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f8fbff 25%,
+    #eef4ff 60%,
+    #e3ecff 100%
+  );
+}
 .url-input-cont{
+  margin: 10px 0;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid #e1e1e1;
-  margin-top: 10px;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: .5fr 8fr .5fr;
+  /* column-gap: 5px; */
+  border: 1px solid #e5e7eb;
+  align-items: center;
+  padding: 10px 5px;
+  box-shadow:0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 40px;
 }
 
 
 .input-field{
-  width: 100%;
   outline: none;
   border: none;
-  border: 1px solid grey;
-  border-radius: 4px;
-  padding: 10px;
-  color: #000;
-  padding-left: 40px;
+  font-size: 14px;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.form-button{
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
 
 .btn{
-  outline: none;
-  border: none;
-  width: 100px;
-  color: #fff;
-  padding: 8px 0px;
-  text-align: center;
-  background-color: #2563EB;
-  border: 1px solid #2563EB;
-  border-radius: 4px;
-  margin-top: 20PX;
+  text-align: end;
+  color: #2563EB;
   cursor: pointer;
 }
 
-.imag-url-icon{
-  position: absolute;
+.url-link-icon{
+  margin-left: 10px;
   width: 20px;
   height: auto;
-  margin: 12px 10px;
+  color:#000;
+
 }

@@ -1,10 +1,13 @@
 
 import { Metadata } from 'next';
 import  { UrlShortnerPageComp } from '../components/urlShortnerComp';
-// import connectMongoDB from '../connection/mongodb';
+import RightReserved from '../components/common/rightReserved';
 const UrlShortnerPage = () => {
   return(
+    <>
     <UrlShortnerPageComp />
+    <RightReserved />
+    </>
   )
 }
 
