@@ -2,7 +2,7 @@ import './common.css';
 const RightReserved = () => {
   return(
     <>
-    <div className="right-reserved-strip flex justify-center text-gray-400 font-semibold">@Miraj Ahmed | 2026</div>
+    <div className="right-reserved-strip flex justify-center text-gray-400 font-semibold">© 2026 Miraj Ahmed • Crafted with Next.js</div>
     </>
   )
 
