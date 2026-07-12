@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 import  { UrlShortnerPageComp } from '../components/urlShortnerComp';
 import RightReserved from '../components/common/rightReserved';
+import Head from 'next/head';
 const UrlShortnerPage = () => {
   return(
     <>
